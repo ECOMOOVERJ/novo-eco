@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EcoMoove — Mobilidade elétrica em Rio das Ostras</title>
+  <meta name="description" content="Bicicletas elétricas, scooters e motos elétricas com entrega rápida em Rio das Ostras. Test ride, garantia e condições especiais no WhatsApp.">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Fonts: Poppins + (fallback para Jura caso “Jaturat” não esteja online) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Jura:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="EcoMoove — Mobilidade elétrica em Rio das Ostras">
+  <meta property="og:description" content="Scooters e bikes elétricas com entrega expressa. Fale no WhatsApp e garanta seu test ride.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/scooter-sol-1000w.jpg">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡️</text></svg>">
+
+  <style>
+    :root{
+      --bg:#000000;
+      --card:#0a0a0a;
+      --muted:#94a3b8;
+      --text:#e6ffe6;
+      --brand:#b6ff00;
+      --brand-2:#aaff33;
+      --accent:#ccff33;
+      --stroke:#1a1a1a;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:"Poppins","Jaturat","Jura",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      scroll-behavior:smooth
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1120px,92%);margin-inline:auto}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--stroke)}
+    .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:#101010;display:grid;place-items:center;box-shadow:var(--shadow);overflow:hidden}
+    .brand .logo img{width:100%;height:100%;object-fit:cover}
+    .menu{display:flex;gap:22px;align-items:center}
+    .menu a{font-weight:500;color:var(--muted)}
+    .menu a:hover{color:#fff}
+    .cta{padding:10px 16px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-2));font-weight:700;color:#00150c;box-shadow:var(--shadow)}
+    .hero{padding:64px 0 24px;position:relative;overflow:hidden}
+    .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid var(--stroke);border-radius:999px;color:var(--muted);background:rgba(255,255,255,.02)}
+    .title{font-size:clamp(28px, 5vw, 56px);line-height:1.05;margin:18px 0 12px;font-weight:800}
+    .subtitle{color:#cbd5e1;font-size:clamp(15px, 2.1vw, 18px);margin-bottom:24px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;border:1px solid var(--stroke);font-weight:700}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#00150c;border:0}
+    .btn.secondary{color:#cbd5e1}
+    .hero .photo{border-radius:18px;overflow:hidden;border:1px solid var(--stroke);box-shadow:var(--shadow)}
+    .hero .photo img{aspect-ratio:16/11;object-fit:cover}
+    .trust{display:flex;gap:20px;align-items:center;margin-top:22px;color:var(--muted);flex-wrap:wrap}
+    .trust .item{display:flex;gap:8px;align-items:center}
+    .tag{padding:6px 10px;border:1px dashed var(--stroke);border-radius:999px;color:#9ca3af}
+    .section{padding:64px 0}
+    .kicker{color:var(--accent);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:12px}
+    .section h2{font-size:clamp(24px,3.5vw,40px);margin:8px 0 20px}
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--stroke);border-radius:var(--radius);padding:22px}
+    .card h3{margin:6px 0 8px}
+    .card p{color:#cbd5e1}
+    .icon{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(182,255,0,.18),rgba(170,255,51,.16));border:1px solid var(--stroke)}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .product{overflow:hidden}
+    .product .thumb{border-radius:14px;overflow:hidden;border:1px solid var(--stroke)}
+    .product .thumb img{aspect-ratio:16/11;object-fit:cover;transition:transform .6s ease}
+    .product:hover .thumb img{transform:scale(1.04)}
+    .product .meta{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+    .pill{font-size:12px;color:var(--muted);border:1px solid var(--stroke);border-radius:999px;padding:6px 10px}
+    .callout{display:grid;grid-template-columns:1.4fr .6fr;gap:20px;align-items:center;background:linear-gradient(90deg,rgba(182,255,0,.18),rgba(170,255,51,.16));border:1px solid var(--stroke);border-radius:18px;padding:22px}
+    .callout strong{color:#fff}
+    .testis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    blockquote{margin:0;background:rgba(255,255,255,.03);border:1px solid var(--stroke);border-radius:14px;padding:18px;line-height:1.6}
+    blockquote footer{margin-top:10px;color:#9ca3af}
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    details{background:rgba(255,255,255,.03);border:1px solid var(--stroke);border-radius:14px;padding:16px}
+    summary{cursor:pointer;font-weight:600}
+    details[open]{background:rgba(255,255,255,.05)}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form textarea{grid-column:1/-1;min-height:120px}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;background:#0e141b;border:1px solid var(--stroke);color:#e5e7eb}
+    .note{color:#9ca3af;font-size:14px}
+    footer{padding:38px 0;border-top:1px solid var(--stroke);color:#9ca3af}
+    .foot-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:20px}
+    .mini{display:flex;gap:10px;flex-wrap:wrap}
+    .float-cta{position:fixed;right:16px;bottom:16px;z-index:60}
+    .float-cta a{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#00150c;font-weight:800;box-shadow:var(--shadow)}
+    @media (max-width: 980px){
+      .hero .grid, .benefits, .products, .testis, .faq, .callout, .foot-grid{grid-template-columns:1fr}
+      .hero{padding-top:36px}
+      .menu{display:none}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container wrap">
+      <a class="brand" href="#top" aria-label="EcoMoove Início">
+        <span class="logo" aria-hidden="true">
+          <img src="assets/logo-ecomoove.jpg" alt="Logo EcoMoove">
+        </span>
+        <span>EcoMoove</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="#modelos">Modelos</a>
+        <a href="#beneficios">Por que EcoMoove</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#faq">FAQ</a>
+        <a class="cta" href="https://wa.me/5522998267688?text=Quero%20conhecer%20as%20ofertas%20EcoMoove" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container" id="top">
+      <div class="grid">
+        <div>
+          <span class="badge">
+            <span class="tag">Entrega expressa</span>
+            <span class="tag">Test ride</span>
+            <span class="tag">Garantia real</span>
+          </span>
+          <h1 class="title">Mobilidade elétrica que cabe no seu dia — e no seu bolso.</h1>
+          <p class="subtitle">Scooters, bicicletas e motos elétricas com condições especiais em Rio das Ostras. Receba hoje, economize sempre e mova-se com estilo.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://wa.me/5522998267688?text=Quero%20meu%20desconto%20VIP%20EcoMoove" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 12c0 5.523-4.477 10-10 10a9.96 9.96 0 0 1-5.03-1.356L2 22l1.39-4.97A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10Z" stroke="#00150c" stroke-width="2"/><path d="M16.14 13.03c-.2.57-1 1.06-1.54 1.19-.4.11-.94.18-3.17-.66-2.67-1.07-4.39-3.82-4.53-4-.13-.17-1.08-1.43-1.08-2.72 0-1.29.68-1.92.92-2.19.24-.27.53-.34.7-.34h.5c.16 0 .38-.06.58.44.2.5.68 1.74.74 1.87.06.13.1.28.02.45-.08.17-.12.27-.24.42-.12.15-.25.34-.35.46-.12.15-.25.31-.11.58.13.27.57.95 1.23 1.54.85.75 1.56.98 1.83 1.1.27.12.43.1.59-.06.16-.16.67-.78.85-1.05.18-.27.36-.22.6-.13.24.09 1.54.73 1.8.86.27.13.45.19.52.3.07.11.07.64-.13 1.21Z" fill="#00150c"/></svg>
+              Quero meu desconto
+            </a>
+            <a class="btn secondary" href="#modelos">Ver modelos</a>
+          </div>
+          <div class="trust">
+            <div class="item">★ ★ ★ ★ ★ <span class="muted">Clientes 100% satisfeitos</span></div>
+            <div class="item">✔ Entrega gratuita na região</div>
+            <div class="item">✔ Manutenção e peças</div>
+          </div>
+        </div>
+        <div class="photo" aria-hidden="true">
+          <img src="assets/scooter-sol-1000w.jpg" alt="Moto elétrica EcoMoove pronta-entrega na loja.">
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="section container" id="beneficios">
+      <p class="kicker">Vantagens</p>
+      <h2>Por que escolher a <strong>EcoMoove</strong>?</h2>
+      <div class="benefits">
+        <div class="card">
+          <div class="icon">⚡️</div>
+          <h3>Economia que anda</h3>
+          <p>Recargas por centavos e zero gasolina. Sua mobilidade diária mais leve no bolso e no planeta.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛠️</div>
+          <h3>Suporte local de verdade</h3>
+          <p>Manutenção, peças e garantia com atendimento humano em Rio das Ostras.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🚚</div>
+          <h3>Entrega expressa</h3>
+          <p>Receba na sua casa com nossa Saveiro de entregas e comece a rodar no mesmo dia.</p>
+        </div>
+        <div class="card">
+          <img src="assets/por-que-bike-eletrica.jpg" alt="Por que eu escolhi uma bike elétrica?" style="border-radius:10px;">
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="section container" id="modelos">
+      <p class="kicker">Modelos</p>
+      <h2>Escolha seu próximo elétrico</h2>
+      <div class="products">
+        <article class="product card">
+          <div class="thumb">
+            <img src="assets/scooter-sol-1000w.jpg" alt="Moto elétrica EcoMoove Sol 1000W — foto real na loja.">
+          </div>
+          <h3>Moto Elétrica Sol 1000W</h3>
+          <p class="note">60V 20Ah • até 50 km • 32 km/h</p>
+          <div class="meta">
+            <span class="pill">Pronta-entrega</span>
+            <a class="btn" href="https://wa.me/5522998267688?text=Quero%20saber%20mais%20sobre%20a%20Moto%20El%C3%A9trica%20Sol%201000W" target="_blank" rel="noopener">Consultar</a>
+          </div>
+        </article>
+        <article class="product card">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1516570161787-2fd917215a3d?q=80&w=1400&auto=format&fit=crop" alt="Bicicleta elétrica urbana grafite.">
+          </div>
+          <h3>Bike Elétrica Urbana 350W</h3>
+          <p class="note">36V • até 45 km • câmbio 7v</p>
+          <div class="meta">
+            <span class="pill">Popular</span>
+            <a class="btn" href="https://wa.me/5522998267688?text=Quero%20test%20ride%20na%20Bike%20El%C3%A9trica%20350W" target="_blank" rel="noopener">Agendar test ride</a>
+          </div>
+        </article>
+        <article class="product card">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1518183214770-9cffbec72538?q=80&w=1400&auto=format&fit=crop" alt="Scooter elétrica dobrável.">
+          </div>
+          <h3>Scooter Dobrável 250W</h3>
+          <p class="note">25 km/h • até 30 km • leve</p>
+          <div class="meta">
+            <span class="pill">Urbana</span>
+            <a class="btn" href="https://wa.me/5522998267688?text=Ol%C3%A1%2C%20quero%20a%20Scooter%20Dobr%C3%A1vel%20250W" target="_blank" rel="noopener">Quero</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CALLOUT -->
+    <section class="section container">
+      <div class="callout">
+        <div>
+          <h3>Entrega gratuita na região de Rio das Ostras</h3>
+          <p class="note">Comprou hoje, recebeu hoje.* Consulte bairros atendidos e horários de rota.</p>
+        </div>
+        <div style="text-align:right;">
+          <a class="btn primary" href="https://wa.me/5522998267688?text=Quero%20confirmar%20entrega%20gratuita" target="_blank" rel="noopener">Confirmar minha entrega</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section container" id="depoimentos">
+      <p class="kicker">Clientes reais</p>
+      <h2>Quem já moveu com a gente</h2>
+      <div class="testis">
+        <blockquote>
+          A moto elétrica superou minhas expectativas. Silenciosa, forte e econômica. Atendimento nota 10!
+          <footer>— Carlos M.</footer>
+        </blockquote>
+        <blockquote>
+          Fiz o test ride e fechei na hora. Entrega rápida e suporte na dúvida de carregamento.
+          <footer>— Ana P.</footer>
+        </blockquote>
+        <blockquote>
+          Uso a bike para trabalhar. Autonomia segura e manutenção acessível. Recomendo!
+          <footer>— Rodrigo L.</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section container" id="faq">
+      <p class="kicker">Dúvidas frequentes</p>
+      <h2>Tire suas dúvidas</h2>
+      <div class="faq">
+        <details>
+          <summary>Precisa de CNH para pilotar?</summary>
+          <p>Modelos até 32 km/h geralmente dispensam CNH, mas siga as regras locais e utilize equipamentos de segurança.</p>
+        </details>
+        <details>
+          <summary>Posso parcelar?</summary>
+          <p>Sim, temos opções no cartão e no Pix parcelado. Fale com a equipe para simular.</p>
+        </details>
+        <details>
+          <summary>Qual a garantia?</summary>
+          <p>Garantia de fábrica + suporte local EcoMoove. Peças e assistência com estoque na cidade.</p>
+        </details>
+        <details>
+          <summary>Fazem test ride?</summary>
+          <p>Sim! Agende pelo WhatsApp e experimente antes de decidir.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section container" id="contato">
+      <p class="kicker">Contato</p>
+      <h2>Fale com a gente</h2>
+      <div class="card" style="margin-bottom:14px">
+        <p class="note">Endereço: Rua Bangu — Rio das Ostras, RJ • Atendimento: seg–sáb, 9h às 18h</p>
+      </div>
+      <form onsubmit="event.preventDefault(); toWhatsApp();">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <input type="tel" id="telefone" placeholder="Seu WhatsApp">
+        <textarea id="mensagem" placeholder="Conte rapidamente o que você procura"></textarea>
+        <button class="btn primary" type="submit">Chamar no WhatsApp</button>
+      </form>
+      <p class="note" style="margin-top:8px">Ao enviar, abriremos seu WhatsApp com a mensagem pronta. Não armazenamos dados neste site.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot-grid">
+      <div>
+        <div class="brand">
+          <span class="logo">
+            <img src="assets/logo-ecomoove.jpg" alt="Logo EcoMoove">
+          </span>
+          <strong>EcoMoove</strong>
+        </div>
+        <p class="note" style="margin-top:10px">© <span id="year"></span> EcoMoove. Todos os direitos reservados.</p>
+      </div>
+      <div>
+        <div class="mini">
+          <a class="pill" href="#beneficios">Vantagens</a>
+          <a class="pill" href="#modelos">Modelos</a>
+          <a class="pill" href="#faq">FAQ</a>
+          <a class="pill" href="https://wa.me/5522998267688?text=Quero%20falar%20com%20um%20especialista%20EcoMoove" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante WhatsApp -->
+  <div class="float-cta" aria-hidden="false" aria-label="Atalho WhatsApp">
+    <a href="https://wa.me/5522998267688?text=Ol%C3%A1%20EcoMoove%2C%20vim%20pelo%20site!" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 12c0 5.523-4.477 10-10 10a9.96 9.96 0 0 1-5.03-1.356L2 22l1.39-4.97A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10Z" stroke="#00150c" stroke-width="2"/><path d="M16.14 13.03c-.2.57-1 1.06-1.54 1.19-.4.11-.94.18-3.17-.66-2.67-1.07-4.39-3.82-4.53-4-.13-.17-1.08-1.43-1.08-2.72 0-1.29.68-1.92.92-2.19.24-.27.53-.34.7-.34h.5c.16 0 .38-.06.58.44.2.5.68 1.74.74 1.87.06.13.1.28.02.45-.08.17-.12.27-.24.42-.12.15-.25.34-.35.46-.12.15-.25.31-.11.58.13.27.57.95 1.23 1.54.85.75 1.56.98 1.83 1.1.27.12.43.1.59-.06.16-.16.67-.78.85-1.05.18-.27.36-.22.6-.13.24.09 1.54.73 1.8.86.27.13.45.19.52.3.07.11.07.64-.13 1.21Z" fill="#00150c"/></svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <script>
+    const WHATSAPP_NUMBER = "5522998267688";
+    function toWhatsApp(){
+      const nome = document.getElementById('nome').value?.trim() || "";
+      const tel = document.getElementById('telefone').value?.trim() || "";
+      const msg = document.getElementById('mensagem').value?.trim() || "";
+      const texto = encodeURIComponent(`Olá, sou ${nome}. Meu WhatsApp: ${tel}. Quero saber mais: ${msg}`);
+      const link = `https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`;
+      window.open(link, '_blank', 'noopener');
+    }
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a=>{
+      a.href = a.href.replace(/\d{11,13}/, WHATSAPP_NUMBER);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "EcoMoove",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Bangu",
+      "addressLocality": "Rio das Ostras",
+      "addressRegion": "RJ",
+      "addressCountry": "BR"
+    },
+    "image": "assets/scooter-sol-1000w.jpg",
+    "url": "https://seu-dominio.com.br",
+    "telephone": "+55 22 99826-7688",
+    "openingHours": "Mo-Sa 09:00-18:00",
+    "priceRange": "$$"
+  }
+  </script>
+</body>
+</html>
